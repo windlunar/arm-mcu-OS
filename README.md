@@ -5,7 +5,7 @@ PART 1 : Install Cross compiler for arm architecture machine
 
 Install : "gcc-arm-none-eabi-9-2020-q2-update" 
 <br><br>
-Make sure the compiler was installed at /opt 下.<br> 
+Make sure the compiler was installed at "/opt" .<br> 
 Or you can check "obj/MakeFile" , and modified this line to the path where the compiler is actually installed.<br>
 
 	/opt/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1

@@ -1,0 +1,46 @@
+#
+# 2021/4/20
+#
+# Created by Allen.YY
+#
+
+include ../../toolchain.make
+
+obj_destination_path = ../../obj
+CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostdlib 
+
+c_obj=
+
+
+.PHONY : all
+all: $(c_obj) move
+
+
+%.o : %.c
+	$(toolchain)-gcc $(CFLAGS) -c $^ -o $@
+
+
+.PHONY : move
+move : 
+	cp *.o $(obj_destination_path)
+	rm -rf *.o	
+	rm -rf *.su
+
+
+#Clean objects
+.PHONY : clean
+clean :
+	-rm $(obj_destination_path)/$(src_objects)
+
+
+
+
+
+
+
+
+
+
+
+
+

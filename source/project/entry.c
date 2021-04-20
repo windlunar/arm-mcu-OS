@@ -1,7 +1,35 @@
 
 #include "../core/stm32f10x.h"
 
+/***************************************************************************************
+void delay_ms(uint16_t t);
 
+int main()
+{
+	RCC->APB2ENR |= 0xFC; //Enable the clocks for GPIO ports 
+	
+	GPIOC->CRH = 0x33333333; //PC8 to PC15 as outputs
+
+	while (1) {		
+		GPIOC->ODR &= (unsigned int)(~(1 << 13)); //make usr led low
+		delay_ms(1000);	//wait 1000ms
+		GPIOC->ODR |= (unsigned int)(1 << 13); //make usr led high
+		delay_ms(1000);	//wait 1000ms
+	}
+}
+
+
+
+//The following delay is tested with Keil and 72MHz
+void delay_ms(uint16_t t)
+{
+	volatile unsigned long l = 0;
+	
+	for(uint16_t i = 0; i < t; i++)
+		for(l = 0; l < 6000; l++) ;
+}
+***************************************************************************************/
+/***************************************************************************************/
 void puts(char *str)
 {
 	while (*str) {
@@ -29,3 +57,4 @@ void main(void)
 
 	while (1);
 }
+/***************************************************************************************/

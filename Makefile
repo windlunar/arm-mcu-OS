@@ -56,8 +56,9 @@ disasm:
 qemu:
 	@qemu-system-arm -M stm32-p103 -nographic -kernel $(bin_destination_path)/$(bin_name).bin
 
-
-
+.PHONY : stflash
+stflash:
+	sudo st-flash --reset write $(bin_destination_path)/$(bin_name).bin 0x08000000
 
 
 

@@ -9,7 +9,7 @@ include ../../toolchain.make
 obj_destination_path = ../../obj
 CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostdlib 
 
-c_obj=
+c_obj=gpio.o usart.o
 
 
 .PHONY : all

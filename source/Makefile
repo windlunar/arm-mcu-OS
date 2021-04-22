@@ -7,7 +7,7 @@
 all:
 	make -C ./core
 	make -C ./project
-	#make -C ./driver
+	make -C ./driver
 	#make -C ./lib
 
 

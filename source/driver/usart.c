@@ -79,11 +79,19 @@ void usart_init(USART_TypeDef * usartx)
 	
 	usart_clk_enable() ;
 
-	// Enable Transmitter
-	
-	//usartx->CR1 |=  (TRANSMITTER_ENABLE << TRANSMITTER_BIT_SHIFT) ;
-	//usartx->CR1 |= (RECEIVER_ENABLE << RECEIVER_BIT_SHIFT) ; 
-
-	// Enable Receiver
+	// Enable USART
+	usart_enable(usartx) ;
 }
 
+
+void usart_enable(USART_TypeDef * usartx)
+{
+	// Enable Receiver
+	SET_SINGLE_BIT(USART2->CR1 ,2) ;
+
+	// Enable Transmitter
+	SET_SINGLE_BIT(USART2->CR1 ,3) ;
+
+	//Enable USART
+	SET_SINGLE_BIT(USART2->CR1 ,13) ;
+}

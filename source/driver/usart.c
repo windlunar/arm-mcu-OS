@@ -1,6 +1,7 @@
 
 #include "usart.h"
 #include "gpio.h"
+#include "../lib/common.h"
 
 void usart_send_str(char *s)
 {
@@ -16,9 +17,9 @@ void usart_send_str(char *s)
 
 void usart_clk_enable(void)
 {
-	RCC->APB2ENR |= RCC_APB2ENR_USART1EN ;	// Enable USART1
-    RCC->APB1ENR |= RCC_APB1ENR_USART2EN ;	// Enable USART2
-	//RCC->APB1ENR |= RCC_APB1ENR_USART3EN ;	// Enable USART3 ,qemu failed
+	SET_BIT(RCC->APB2ENR ,RCC_APB2ENR_USART1EN) ;
+	SET_BIT(RCC->APB1ENR ,RCC_APB1ENR_USART2EN) ;
+	//SET_BIT(RCC->APB1ENR ,RCC_APB1ENR_USART3EN) ; // Enable USART3 ,qemu failed but success at keil
 }
 
 
@@ -36,7 +37,8 @@ void usart_clk_enable(void)
 int config_gpio_for_usart(USART_TypeDef * usartx)
 {
 	if (usartx == USART1) {
-		GPIOA->ODR |= (1 << 10) ;	//Pull-up PA10 for USART1
+		//Pull-up PA10 for USART1 ,GPIOA->ODR |= (1 << 10) ;	
+		SET_SINGLE_BIT(GPIOA->ODR ,10) ;
 
 		// Config GPIO for USART1
 		config_gpio_mode(GPIOA ,9 ,MODE_OUTPUT_50M) ;
@@ -44,7 +46,8 @@ int config_gpio_for_usart(USART_TypeDef * usartx)
 		config_gpio_mode(GPIOA ,10 ,MODE_INPUT) ;
 
 	} else if (usartx == USART2) {
-		GPIOA->ODR |= (1 << 3) ;	//Pull-up PA3 for USART2
+		//Pull-up PA3 for USART2 ,GPIOA->ODR |= (1 << 3) ;	
+		SET_SINGLE_BIT(GPIOA->ODR ,3) ;
 
 		//Config GPIO for USART2
 		config_gpio_mode(GPIOA ,2 ,MODE_OUTPUT_50M) ;
@@ -52,7 +55,8 @@ int config_gpio_for_usart(USART_TypeDef * usartx)
 		config_gpio_mode(GPIOA ,3 ,MODE_INPUT) ;
 
 	} else if (usartx == USART3) {
-		GPIOB->ODR |= (1 << 11) ;	//Pull-up PB11 for USART3
+		//Pull-up PB11 for USART3 ,GPIOB->ODR |= (1 << 11) ;	
+		SET_SINGLE_BIT(GPIOB->ODR ,11) ;
 
 		//Config GPIO for USART3
 		config_gpio_mode(GPIOB ,10 ,MODE_OUTPUT_50M) ;
@@ -74,5 +78,12 @@ void usart_init(USART_TypeDef * usartx)
 	config_gpio_for_usart(usartx) ;	//Config GPIO for USARTx
 	
 	usart_clk_enable() ;
+
+	// Enable Transmitter
+	
+	//usartx->CR1 |=  (TRANSMITTER_ENABLE << TRANSMITTER_BIT_SHIFT) ;
+	//usartx->CR1 |= (RECEIVER_ENABLE << RECEIVER_BIT_SHIFT) ; 
+
+	// Enable Receiver
 }
 

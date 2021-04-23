@@ -1,11 +1,14 @@
 
 #include "gpio.h"
+#include "../lib/common.h"
 
 
 void gpio_clk_enable(void)
 {
-	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN ;	// Enable the clocks for GPIOA ports 
-	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN ;	// Enable the clks for GPIOB
+	// Enable the clocks for GPIOA ports  ,RCC->APB2ENR |= RCC_APB2ENR_IOPAEN ;	
+	// Enable the clks for GPIOB ,RCC->APB2ENR |= RCC_APB2ENR_IOPBEN ;	
+	SET_BIT(RCC->APB2ENR ,RCC_APB2ENR_IOPAEN) ;
+	SET_BIT(RCC->APB2ENR ,RCC_APB2ENR_IOPBEN) ;
 }
 
 
@@ -16,7 +19,7 @@ int config_gpio_mode(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits)
 
 	} else if (pin <= 15) {
 		GPIOx->CRH |= (mode_bits << (4 * (pin - 7))) ;
-		
+
 	} else {
 		return -1 ;
 	}

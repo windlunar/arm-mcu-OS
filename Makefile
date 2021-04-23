@@ -54,7 +54,9 @@ disasm:
 # stm32-maple          OPEN SOURCE HARDWARE MAPLE / ARDUINO LIKE DEVELOPMENT BOARD
 .PHONY : qemu
 qemu:
-	@qemu-system-arm -M stm32-p103 -nographic -kernel $(bin_destination_path)/$(bin_name).bin
+	@qemu-system-arm -M stm32-p103 -s -nographic -kernel $(bin_destination_path)/$(bin_name).bin
+
+
 
 .PHONY : stflash
 stflash:
@@ -62,5 +64,13 @@ stflash:
 
 
 
+.PHONY : qemu-gdb
+qemu-gdb:
+	@qemu-system-arm -M stm32-p103 -nographic -kernel $(bin_destination_path)/$(bin_name).bin -S -s
 
+
+
+.PHONY : gdb
+gdb:
+	$(toolchain)-gdb -x gdb_script.txt $(bin_destination_path)/$(bin_name).elf
 

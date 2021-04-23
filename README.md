@@ -34,7 +34,20 @@ PART 2 : Compile this project
 
 Press "Ctrl+a" and then press "x" to exit emulator
 
+<br>
+Use gdb debug
+<br>
+First terminal :
+
+    make qemu-gdb
+
+Second terminal :
+
+    make gdb
+    
+
 PART3 : Install ST-Link
+=
 
 If you had installed STM32CUBEIDE ,then uninstall first :
 

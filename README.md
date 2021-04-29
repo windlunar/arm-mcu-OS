@@ -1,5 +1,31 @@
 # arm-mcu-OS
 
+1. Create a keil project for STM32F103C8
+
+<br><br>
+
+2. Copy "source" into your project folder where the 
+<br>
+<\project_name\>.uvprojx is.
+<br>
+Like :<br>
+--<\project Folder\><br>
+------DebugConfig<br>
+------Listings<br>
+------Objects<br>
+------RTE<br>
+------source<br>
+------arm-mcu.uvguix.user<br>
+------arm-mcu.uvoptx<br>
+------arm-mcu.uvoptx<br>
+------EventRecorderStub.scvd<br>
+------source        <<-----<br><br>
+
+3. In keil : Add all the source code into your project.
+
+4. Compile it.
+
+
 PART 1 : Install Cross compiler for arm architecture machine
 =
 

@@ -2,7 +2,7 @@
 #ifndef _USART_H_
 #define _USART_H_
 
-#include "../core/stm32f10x.h"
+#include <stm32f10x.h>
 
 #define CONSOLE_PTR		USART2
 

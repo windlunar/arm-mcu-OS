@@ -2,7 +2,7 @@
 #ifndef _GPIO_H_
 #define _GPIO_H_
 
-#include "../core/stm32f10x.h"
+#include <stm32f10x.h>
 
 
 /**
@@ -65,9 +65,14 @@
 #define PIN_14_CNF_SHIFT         (26)
 #define PIN_15_CNF_SHIFT         (30)
 
+#define OUTPUT      (0)
+#define INPUT       (1)
 
 void gpio_clk_enable(void) ;
-int config_gpio_mode(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits) ;
-int config_gpio_cnf(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t cnf_bits) ;
+int config_gpio_mode_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits) ;
+int config_gpio_cnf_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t cnf_bits) ;
+void gpio_pin_mode(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t pin_mode) ;
+void gpio_pin_toggle(GPIO_TypeDef * GPIOx ,uint8_t pin) ;
+
 
 #endif

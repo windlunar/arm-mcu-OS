@@ -1,4 +1,9 @@
 # arm-mcu-OS
+PART 0
+=
+
+Enviroment : Ubuntu 18.04
+
 
 PART 1 : Install Cross compiler for arm architecture machine
 =
@@ -12,7 +17,7 @@ Or you can check "obj/MakeFile" , and modified the path where the compiler is ac
 <br>
 
 
-PART 1 : Install qemu_stm32
+PART 2 : Install qemu_stm32
 =
 Clone the project "qemu_stm32" :
 
@@ -26,7 +31,7 @@ Compile it :
     sudo make install
 
 
-PART 2 : Compile this project
+PART 3 : Compile this project
 =
 
     make
@@ -46,7 +51,7 @@ Second terminal :
     make gdb
     
 
-PART3 : Install ST-Link
+PART 4 : Install ST-Link
 =
 
 If you had installed STM32CUBEIDE ,then uninstall first :
@@ -67,7 +72,7 @@ Move to the directory where your "stlink-1.6.1-1_amd64.deb" is.
 
 
 
-PART3 : Compile and install ST-Link from source
+PART 5 : Compile and install ST-Link from source
 
 Download "Source code (zip)"  version 1.6.1 from https://github.com/stlink-org/stlink/releases
 
@@ -96,7 +101,7 @@ You should see "STMicroelectronics ST-LINK/V2"
 You should see "Found 1 stlink programmers"
 
 
-PART4 : Write binary to STM32F103C8
+PART 6 : Write binary to STM32F103C8
 
     sudo st-flash --reset write ./bin/amo.bin 0x08000000
  

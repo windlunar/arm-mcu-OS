@@ -9,5 +9,6 @@
 void SysTick_Handler(void)
 {
 	gpio_pin_toggle(GPIOC ,13) ; // toggle PC13 
-	usart_send_str("In SysTick_Handler!\n\0");
+	printf("In SysTick_") ;
+	usart_send_str(CONSOLE_PTR,"Handler!\n\0");
 }

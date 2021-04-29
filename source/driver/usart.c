@@ -3,10 +3,34 @@
 #include "gpio.h"
 #include "../lib/common.h"
 
-void usart_send_str(char *s)
+
+/**
+ *	Redirect printf to USART output. 
+ * 
+ * Need to check "Use MicroLIB" in "Options for Targets"
+ */
+int fputc(int ch, FILE *f)
+{  
+    usart_send_char(CONSOLE_PTR ,(uint8_t)ch) ;
+	
+    return ch;
+}
+
+
+
+void usart_send_char(USART_TypeDef * usartx ,unsigned char ch)
+{
+	while (!((usartx->SR) & USART_SR_TXE));
+
+	USART2->DR = ch;
+}
+
+
+
+void usart_send_str(USART_TypeDef * usartx ,char *s)
 {
 	while (*s) {
-		while (!((USART2->SR) & USART_SR_TXE));
+		while (!((usartx->SR) & USART_SR_TXE));
 
 		USART2->DR = *s;
 

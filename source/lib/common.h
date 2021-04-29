@@ -5,14 +5,15 @@
 #include "../core/stm32f10x.h"
 
 #define SET_SINGLE_BIT(reg ,bit)    \
-        do {reg |= (1 << bit) ;} \
+        do {reg |= (uint32_t)(1 << bit) ;} \
         while(0)
 
 
 
 #define CLEAR_SINGLE_BIT(reg ,bit)    \
-        do {reg &= ~(1 << bit) ;} \
+        do {reg &= ~((uint32_t)(1 << bit)) ;} \
         while(0)
 
-
+#define TRUE    (1)
+#define FALSE   (0)
 #endif

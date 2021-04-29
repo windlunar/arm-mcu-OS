@@ -12,13 +12,13 @@ void gpio_clk_enable(void)
 }
 
 
-int config_gpio_mode(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits)
+int config_gpio_mode_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits)
 {
 	if (pin <= 7) {
-		GPIOx->CRL |= (mode_bits << (4 * pin)) ;
+		GPIOx->CRL |= (uint32_t)(mode_bits << (4 * pin)) ;
 
 	} else if (pin <= 15) {
-		GPIOx->CRH |= (mode_bits << (4 * (pin - 7))) ;
+		GPIOx->CRH |= (uint32_t)(mode_bits << (4 * (pin - 7))) ;
 
 	} else {
 		return -1 ;
@@ -28,17 +28,17 @@ int config_gpio_mode(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits)
 }
 
 
-int config_gpio_cnf(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t cnf_bits)
+int config_gpio_cnf_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t cnf_bits)
 {
 	uint8_t bit_shift ;
 
 	if (pin <= 7) {
 		bit_shift = (4 * pin) + 2 ;
-		GPIOx->CRL |= (cnf_bits << bit_shift) ;
+		GPIOx->CRL |= (uint32_t)(cnf_bits << bit_shift) ;
 
 	} else if (pin <= 15) {
 		bit_shift = (4 * (pin - 7)) + 2 ;
-		GPIOx->CRH |= (cnf_bits << bit_shift) ;
+		GPIOx->CRH |= (uint32_t)(cnf_bits << bit_shift) ;
 
 	} else {
 		return -1 ;

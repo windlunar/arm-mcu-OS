@@ -41,27 +41,27 @@ int config_gpio_for_usart(USART_TypeDef * usartx)
 		SET_SINGLE_BIT(GPIOA->ODR ,10) ;
 
 		// Config GPIO for USART1
-		config_gpio_mode(GPIOA ,9 ,MODE_OUTPUT_50M) ;
-		config_gpio_cnf(GPIOA ,9 ,ALT_OUT_PUSHPULL) ;
-		config_gpio_mode(GPIOA ,10 ,MODE_INPUT) ;
+		config_gpio_mode_bits(GPIOA ,9 ,MODE_OUTPUT_50M) ;
+		config_gpio_cnf_bits(GPIOA ,9 ,ALT_OUT_PUSHPULL) ;
+		config_gpio_mode_bits(GPIOA ,10 ,MODE_INPUT) ;
 
 	} else if (usartx == USART2) {
 		//Pull-up PA3 for USART2 ,GPIOA->ODR |= (1 << 3) ;	
 		SET_SINGLE_BIT(GPIOA->ODR ,3) ;
 
 		//Config GPIO for USART2
-		config_gpio_mode(GPIOA ,2 ,MODE_OUTPUT_50M) ;
-		config_gpio_cnf(GPIOA ,2 ,ALT_OUT_PUSHPULL) ;
-		config_gpio_mode(GPIOA ,3 ,MODE_INPUT) ;
+		config_gpio_mode_bits(GPIOA ,2 ,MODE_OUTPUT_50M) ;
+		config_gpio_cnf_bits(GPIOA ,2 ,ALT_OUT_PUSHPULL) ;
+		config_gpio_mode_bits(GPIOA ,3 ,MODE_INPUT) ;
 
 	} else if (usartx == USART3) {
 		//Pull-up PB11 for USART3 ,GPIOB->ODR |= (1 << 11) ;	
 		SET_SINGLE_BIT(GPIOB->ODR ,11) ;
 
 		//Config GPIO for USART3
-		config_gpio_mode(GPIOB ,10 ,MODE_OUTPUT_50M) ;
-		config_gpio_cnf(GPIOB ,10 ,ALT_OUT_PUSHPULL) ;
-		config_gpio_mode(GPIOB ,11 ,MODE_INPUT) ;
+		config_gpio_mode_bits(GPIOB ,10 ,MODE_OUTPUT_50M) ;
+		config_gpio_cnf_bits(GPIOB ,10 ,ALT_OUT_PUSHPULL) ;
+		config_gpio_mode_bits(GPIOB ,11 ,MODE_INPUT) ;
 
 	} else {
 		return -1 ;
@@ -87,11 +87,11 @@ void usart_init(USART_TypeDef * usartx)
 void usart_enable(USART_TypeDef * usartx)
 {
 	// Enable Receiver
-	SET_SINGLE_BIT(USART2->CR1 ,2) ;
+	SET_SINGLE_BIT(usartx->CR1 ,2) ;
 
 	// Enable Transmitter
-	SET_SINGLE_BIT(USART2->CR1 ,3) ;
+	SET_SINGLE_BIT(usartx->CR1 ,3) ;
 
 	//Enable USART
-	SET_SINGLE_BIT(USART2->CR1 ,13) ;
+	SET_SINGLE_BIT(usartx->CR1 ,13) ;
 }

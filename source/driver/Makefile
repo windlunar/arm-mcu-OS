@@ -1,7 +1,7 @@
 #
 # 2021/4/20
 #
-# Created by Allen.YY
+# Created by ME
 #
 
 include ../../toolchain.make
@@ -9,7 +9,7 @@ include ../../toolchain.make
 obj_destination_path = ../../obj
 CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostdlib 
 
-c_obj=gpio.o usart.o
+c_obj=gpio.o usart.o systick.o
 
 
 .PHONY : all

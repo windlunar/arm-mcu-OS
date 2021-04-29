@@ -25,7 +25,7 @@ CFLAGS  += -fno-common -fno-builtin -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -n
 #CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nodefaultlibs -nostartfiles
 #CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostartfiles
 
-c_obj= entry.o
+c_obj= entry.o systick_int.o
 asm_obj=
 
 .PHONY : all

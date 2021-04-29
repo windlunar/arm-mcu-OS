@@ -3,11 +3,10 @@
 1. Create a keil project for STM32F103C8
 <br>
 
-2. Copy "source" into your project folder where the 
+2. Copy "source" into your project folder where the <project_name>.uvprojx is.
 <br>
-<\project_name\>.uvprojx is.
+Like :
 
-    Like :
     --<project Folder>
     ------DebugConfig
     ------Listings

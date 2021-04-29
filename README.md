@@ -17,7 +17,7 @@ Like :
     ------arm-mcu.uvoptx
     ------arm-mcu.uvoptx
     ------EventRecorderStub.scvd
-    ------source        <<-----
+    ------source        <<----- source code form this branch
 
 3. In keil : Add all the source code into your project.
 

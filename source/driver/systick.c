@@ -2,17 +2,7 @@
 #include "systick.h"
 #include "../lib/common.h"
 
-void systick_enable(void)
-{
-	SET_SINGLE_BIT(SysTick->CTRL ,0) ;
-}
 
-
-
-void systick_disable(void)
-{
-	CLEAR_SINGLE_BIT(SysTick->CTRL ,0) ;
-}
 
 
 void systick_choose_clksrc(uint32_t clk_src)
@@ -58,6 +48,19 @@ void delay(uint32_t us)
 
 
 
+void systick_enable(void)
+{
+	SET_SINGLE_BIT(SysTick->CTRL ,0) ;
+}
+
+
+
+void systick_disable(void)
+{
+	CLEAR_SINGLE_BIT(SysTick->CTRL ,0) ;
+}
+
+
 
 void systick_int_enable(void)
 {
@@ -78,7 +81,8 @@ void systick_int_init(uint32_t slice_us)
 	SysTick->LOAD = load_val ;
 
 	systick_choose_clksrc(SYSTICK_AHBCLK) ;
-	systick_enable() ;
+	
 	systick_int_enable() ;
+	//systick_enable() ;
 }
 

@@ -28,13 +28,14 @@ Like :
 Modified Line33 : "Stack_Size      EQU     0x00000400"
 <br>
 to
-    "Stack_Size      EQU     0x00004000"
+
+    Stack_Size      EQU     0x00004000
 
 <br><br>
 
 5.Options for target setup :
 
-<br><br>
+<br>
 MCU : STM32F103C8<br>
 Target --> Xtal(MHz) : 8.0<br>
 Target --> Check "Use MicroLIB"<br>
@@ -42,7 +43,7 @@ Target --> ARM Compiler : Use default compiler version 6
 
 <br><br>
 C/C++(AC6) --> Language C : c99<br>
-C/C++(AC6) --> Optimization : -O0<br>
+C/C++(AC6) --> Optimization : -O0
 
 <br><br>
 Debug --> Check "Use Simulator"<br>

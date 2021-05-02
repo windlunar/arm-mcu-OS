@@ -99,12 +99,10 @@ void thread_create(struct thread_info *thread ,void (*thread_entry)(void) ,uint8
 
 	// thread->context is the SP too.
 	thread->context = (struct thread_context *)(thread->stack_top - 16) ;
-	printf("\n1.thread->context address : %p--", thread->context) ;
-	printf("thread->context point to : %p\n", &thread->context) ;
-	// Setup Entry
+
+	// Setup Entry of thread in context structure
 	thread->entry = thread_entry ;
-	thread->context->r11 = (uint32_t)thread_entry ;
-	thread->context->pc = (thread->context->r11) ;
+	thread->context->pc = (uint32_t)thread_entry ;
 	thread->context->xpsr = THUMB_BIT << XPSR_T_BIT_SHIFT ;
 
 	// Setup the state as READY
@@ -130,7 +128,7 @@ void scheduler(void)
 }
 
 
-void thread1_init(void)
+void first_thread_init(void)
 {
 	curr_thread = thread_ready_list_head ;
 	curr_thread->state = THREAD_RUNNING ;

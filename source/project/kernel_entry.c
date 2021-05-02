@@ -28,7 +28,7 @@ int main(void)
 		thread_create(&thread[i] ,user_threads[i] ,thread_stack[i]) ;
 
 
-	thread1_init() ;	
+	first_thread_init() ;	
 	systick_enable() ;
 
 	run_thread((uint32_t *)curr_thread->context) ;

@@ -57,7 +57,8 @@ extern struct thread_info *curr_thread ;
  * r7
  * r6
  * r5
- * r4 <----- After storing the context ,sp should point to here
+ * r4 <----- After saving the context ,sp and thread_context pointer 
+ *              should point to here
  */ 
 struct thread_context{
     uint32_t r4 ;   // <------- sp
@@ -98,7 +99,7 @@ struct thread_info *ready_list_remove_head(void) ;
 struct thread_info *ready_list_find_end(struct thread_info *head) ;
 void debug_print_ready_list(void) ;
 void scheduler(void) ;
-void thread1_init(void) ;
+void first_thread_init(void) ;
 
 /**
  * Thread's stack and these structures should at specific memory space called page

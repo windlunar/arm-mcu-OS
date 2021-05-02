@@ -1,12 +1,13 @@
 
-#ifndef _SWITCH_H_
-#define _SWITCH_H_
+#ifndef _SYSTICK_INT_H_
+#define _SYSTICK_INT_H_
 
 #include <stm32f10x.h>
 #include "../driver/systick.h"
+#include "thread.h"
+#include "switch.h"
 
-
-extern void run_first_thread(uint32_t *thread_sp) ;
+extern void run_thread(uint32_t *thread_sp) ;
 
 
 #endif

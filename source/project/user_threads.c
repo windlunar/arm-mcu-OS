@@ -4,18 +4,54 @@
 #include "user_threads.h"
 
 
-void first_user_thread(void)
+void (*user_threads[4])(void) = {
+	thread_test1
+	,thread_test2
+	,thread_test3
+	,thread_test4
+} ;
+
+
+void thread_test1(void)
 {
+	int count = 0 ;
+	
 	while (1) {
-		printf("In first_") ;
-		usart_send_str(CONSOLE_PTR,"thread!\n\0");
+		printf("thread1 ,count : %d\n" ,count) ;
+		count++ ;
 	}
 	
 }
 
-void second_user_thread(void)
+
+void thread_test2(void)
 {
+	int count = 0 ;
+
 	while (1) {
-		usart_send_str(CONSOLE_PTR,"In second_user_thread!\n\0");
+		printf("thread2 ,count : %d\n" ,count) ;
+		count++ ;
+	}
+}
+
+
+void thread_test3(void)
+{
+	int count = 0 ;
+
+	while (1) {
+		printf("thread3 ,count : %d\n" ,count) ;
+		count++ ;
+	}
+}
+
+
+void thread_test4(void)
+{
+	int count = 0 ;
+
+	while (1) {
+		printf("thread4 ,count : %d\n" ,count) ;
+		count++ ;
 	}
 }

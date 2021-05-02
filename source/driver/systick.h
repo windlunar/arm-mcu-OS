@@ -19,6 +19,7 @@
 
 #define CLK_MHZ     (72)
 
+extern uint32_t systick_load_val ;
 
 void systick_enable(void) ;
 void systick_disable(void) ;

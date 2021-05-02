@@ -3,6 +3,7 @@
 #include "../lib/common.h"
 
 
+uint32_t systick_load_val = 0 ;
 
 
 void systick_choose_clksrc(uint32_t clk_src)
@@ -76,9 +77,9 @@ void systick_int_disable(void)
 
 void systick_int_init(uint32_t slice_us)
 {
-	uint32_t load_val = (slice_us * CLK_MHZ) - 1 ;
+	systick_load_val = (slice_us * CLK_MHZ) - 1 ;
 
-	SysTick->LOAD = load_val ;
+	SysTick->LOAD = systick_load_val ;
 
 	systick_choose_clksrc(SYSTICK_AHBCLK) ;
 	

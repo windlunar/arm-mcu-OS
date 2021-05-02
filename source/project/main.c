@@ -18,12 +18,18 @@ int main(void)
 	
 	systick_int_init(1000) ;	//10ms
 
-	thread_create(&first_thread ,first_user_thread ,first_thread_stack) ;
-	run_first_thread((uint32_t *)first_thread.context) ;
+	for (int i = 0 ; i < 4; i++)
+		thread_create(&thread[i] ,user_threads[i] ,thread_stack[i]) ;
 
-	//
-	printf("Never Print This.\n") ;
-	
+
+	thread1_init() ;	
+	systick_enable() ;
+
+	run_thread((uint32_t *)curr_thread->context) ;
+
+	// Never reach Here
+	printf("Never Print This Line.\n") ;
+
 	return 0 ;
 }
 

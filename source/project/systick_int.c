@@ -5,10 +5,18 @@
 #include "../driver/gpio.h"
 
 
-
 void SysTick_Handler(void)
 {
-	gpio_pin_toggle(GPIOC ,13) ; // toggle PC13 
-	printf("In SysTick_") ;
-	usart_send_str(CONSOLE_PTR,"Handler!\n\0");
+	curr_thread->context = save_user_context() ;
+
+	systick_disable() ;
+
+	curr_thread->state = THREAD_READY ;
+	curr_thread = NULL ;
+
+	scheduler() ;
+	systick_enable() ;
+
+	switch_user_context(curr_thread->context) ;
+
 }

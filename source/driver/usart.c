@@ -18,7 +18,7 @@ int fputc(int ch, FILE *f)
 
 
 
-void usart_send_char(USART_TypeDef * usartx ,unsigned char ch)
+void usart_send_char(USART_TypeDef * usartx ,const char ch)
 {
 	while (!((usartx->SR) & USART_SR_TXE));
 
@@ -27,7 +27,7 @@ void usart_send_char(USART_TypeDef * usartx ,unsigned char ch)
 
 
 
-void usart_send_str(USART_TypeDef * usartx ,char *s)
+void usart_send_str(USART_TypeDef * usartx ,const char *s)
 {
 	while (*s) {
 		while (!((usartx->SR) & USART_SR_TXE));

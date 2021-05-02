@@ -1,4 +1,10 @@
 // "C:\\Users\\user\\AppData\\Local\\Arm\\Packs\\Keil\\STM32F1xx_DFP\\2.3.0\\Device\\Include"
+
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
+
 #include <stm32f10x.h>
 #include "../driver/gpio.h"
 #include "../driver/usart.h"

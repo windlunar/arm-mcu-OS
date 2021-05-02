@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #ifndef _USER_THREADS_H_
 #define _USER_THREADS_H_

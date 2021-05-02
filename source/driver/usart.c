@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #include "usart.h"
 #include "gpio.h"

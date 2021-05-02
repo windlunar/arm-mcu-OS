@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #ifndef _USART_H_
 #define _USART_H_

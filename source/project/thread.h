@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #ifndef _THREAD_H_
 #define _THREAD_H_
@@ -10,24 +14,6 @@
  * 
  */ 
 #define STACK_SIZE  (512)
-
-/**
- * Thread's stack and these structures should at specific memory space called page
- * Remove these lines after implement page_alloc()
- * 
- */
-
-
-/*
-extern uint8_t thread2_stack[STACK_SIZE] ;
-extern struct thread_info thread2 ;
-
-extern uint8_t thread3_stack[STACK_SIZE] ;
-extern struct thread_info thread3 ;
-
-extern uint8_t thread4_stack[STACK_SIZE] ;
-extern struct thread_info thread4 ;
-*/
 
 /**
  * 
@@ -114,6 +100,11 @@ void debug_print_ready_list(void) ;
 void scheduler(void) ;
 void thread1_init(void) ;
 
+/**
+ * Thread's stack and these structures should at specific memory space called page
+ * Remove these lines after implement page_alloc()
+ * 
+ */
 extern uint8_t thread_stack[4][STACK_SIZE] ;
 extern struct thread_info thread[4] ;
 

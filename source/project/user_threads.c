@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #include "../driver/usart.h"
 #include "../driver/gpio.h"
@@ -15,7 +19,7 @@ void (*user_threads[4])(void) = {
 void thread_test1(void)
 {
 	int count = 0 ;
-	
+
 	while (1) {
 		printf("thread1 ,count : %d\n" ,count) ;
 		count++ ;

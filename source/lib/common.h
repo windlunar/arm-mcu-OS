@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #ifndef _COMMON_H_
 #define _COMMON_H_

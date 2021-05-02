@@ -1,3 +1,7 @@
+/**
+ * Implement by Allen.YY.LIN
+ * 
+ */
 
 #include "../lib/common.h"
 #include "systick_int.h"
@@ -14,19 +18,7 @@ uint32_t thread_id = 0 ;
  */
 uint8_t thread_stack[4][STACK_SIZE] ;
 struct thread_info thread[4] ; 
-/*
-struct thread_info thread1 ;
-uint8_t thread1_stack[STACK_SIZE] ;
 
-struct thread_info thread2 ;
-uint8_t thread2_stack[STACK_SIZE] ;
-
-uint8_t thread3_stack[STACK_SIZE] ;
-struct thread_info thread3 ;
-
-uint8_t thread4_stack[STACK_SIZE] ;
-struct thread_info thread4 ;
-*/
 
 /**
  *	Implement Thread List by Linked list

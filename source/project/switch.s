@@ -63,15 +63,16 @@ save_user_context PROC
 	endp
 
 
-
+; arg1 : New thread_context pointer ,and should be the psp
 	EXPORT 	switch_user_context
 switch_user_context PROC	
-	; Save the context ,push core register to user stack
+	; pop r4-r11 back from stack(memory)
 	ldmfd 	r0!, {r4-r11}
+
+	; Update psp to another thread
 	msr 	psp, r0
 
-	; r0 as the return value ,the context struct pointer should point to here.
-	bx 		lr ; Back to caller
+	bx 		lr
 	endp
 
 	END

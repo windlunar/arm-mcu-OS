@@ -21,7 +21,7 @@ Like :
 
 <br>
 3.In keil : Add all the source code into your project.
-
+<br>
 <br>
 4.Go to "startup_stm32f10x_md.s"
 
@@ -33,22 +33,27 @@ to
     Stack_Size      EQU     0x00004000
 
 <br>
-
 5.Options for target setup :
 
-MCU : STM32F103C8<br>
-Target --> Xtal(MHz) : 8.0<br>
-Target --> Check "Use MicroLIB"<br>
+MCU : STM32F103C8
+<br>
+Target --> Xtal(MHz) : 8.0
+<br>
+Target --> Check "Use MicroLIB"
+<br>
 Target --> ARM Compiler : Use default compiler version 6
-
 <br>
-C/C++(AC6) --> Language C : c99<br>
+<br>
+C/C++(AC6) --> Language C : c99
+<br>
 C/C++(AC6) --> Optimization : -O0
-
 <br>
-Debug --> Check "Use Simulator"<br>
-Debug --> Dialog DLL : DARMSTM.DLL<br>
+<br>
+Debug --> Check "Use Simulator"
+<br>
+Debug --> Dialog DLL : DARMSTM.DLL
+<br>
 Debug --> Parameter: -pSTM32F103C8 (Same line as Dialog DLL)
-
-<br><br>
+<br>
+<br>
 6.Compile it and run.

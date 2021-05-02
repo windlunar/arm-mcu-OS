@@ -24,6 +24,7 @@ Like :
 
 <br>
 4.Go to "startup_stm32f10x_md.s"
+
 <br>
 Modified Line33 : "Stack_Size      EQU     0x00000400"
 <br>
@@ -35,7 +36,6 @@ to
 
 5.Options for target setup :
 
-<br>
 MCU : STM32F103C8<br>
 Target --> Xtal(MHz) : 8.0<br>
 Target --> Check "Use MicroLIB"<br>
@@ -50,5 +50,5 @@ Debug --> Check "Use Simulator"<br>
 Debug --> Dialog DLL : DARMSTM.DLL<br>
 Debug --> Parameter: -pSTM32F103C8 (Same line as Dialog DLL)
 
-<br>
+<br><br>
 6.Compile it and run.

@@ -119,8 +119,10 @@ void thread_create(struct thread_info *thread ,void (*thread_entry)(void) ,uint8
 // You can implement your scheduler here
 void scheduler(void)
 {
-	struct thread_info *de_q_thread = ready_list_remove_head() ;
+	curr_thread->state = THREAD_READY ;
+	curr_thread = NULL ;
 
+	struct thread_info *de_q_thread = ready_list_remove_head() ;
 	ready_list_add_tail(de_q_thread) ;
 
 	curr_thread = thread_ready_list_head ;

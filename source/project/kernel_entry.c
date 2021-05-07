@@ -18,11 +18,10 @@
 int main(void)
 {
 	gpio_clk_enable() ;
-	gpio_pin_mode(GPIOC ,13 ,OUTPUT) ;
 	
   	usart_init(CONSOLE_PTR) ;
 	
-	systick_int_init(1000) ;	//10ms
+	systick_int_init(1000) ;	//0.1ms
 
 	for (int i = 0 ; i < 4; i++)
 		thread_create(&thread[i] ,user_threads[i] ,thread_stack[i]) ;
@@ -35,7 +34,7 @@ int main(void)
 
 	// Never reach Here
 	printf("Never Print This Line.\n") ;
-
+	
 	return 0 ;
 }
 

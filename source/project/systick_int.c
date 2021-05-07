@@ -15,12 +15,10 @@ void SysTick_Handler(void)
 
 	systick_disable() ;
 
-	curr_thread->state = THREAD_READY ;
-	curr_thread = NULL ;
-
 	scheduler() ;
+	
 	systick_enable() ;
 
 	switch_user_context(curr_thread->context) ;
-
-}
+	
+	}

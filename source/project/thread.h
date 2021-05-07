@@ -109,4 +109,7 @@ void first_thread_init(void) ;
 extern uint8_t thread_stack[4][STACK_SIZE] ;
 extern struct thread_info thread[4] ;
 
+
+
+
 #endif

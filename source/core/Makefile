@@ -22,6 +22,7 @@ obj_destination_path = ../../obj
 # -g : 使用 GDB debug
 # -O : 最佳化
 CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostdlib 
+#CFLAGS += -mcpu=cortex-m3 -mthumb -gdwarf-2 -MD -Wall -O0 -mapcs-frame -mthumb-interwork
 
 c_obj=system_stm32f10x.o
 asm_obj=startup_stm32f10x_md.o

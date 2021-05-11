@@ -3,10 +3,19 @@
 #include "gpio.h"
 #include "../lib/common.h"
 
-void usart_send_str(char *s)
+void usart_send_char(USART_TypeDef * usartx ,char ch)
+{
+	while (!((usartx->SR) & USART_SR_TXE));
+
+	USART2->DR = ch;
+}
+
+
+
+void usart_send_str(USART_TypeDef * usartx ,const char *s)
 {
 	while (*s) {
-		while (!((USART2->SR) & USART_SR_TXE));
+		while (!((usartx->SR) & USART_SR_TXE));
 
 		USART2->DR = *s;
 

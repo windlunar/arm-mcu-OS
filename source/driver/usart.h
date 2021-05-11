@@ -19,7 +19,8 @@
 #define RECEIVER_DISABLE		(0)
 
 
-void usart_send_str(char *s) ;
+void usart_send_char(USART_TypeDef * usartx ,char ch) ;
+void usart_send_str(USART_TypeDef * usartx ,const char *s) ;
 void usart_init(USART_TypeDef * usartx) ;
 void usart_clk_enable(void) ;
 int config_gpio_for_usart(USART_TypeDef * usartx) ;

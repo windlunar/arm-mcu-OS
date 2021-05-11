@@ -21,19 +21,29 @@ obj_destination_path = ../../obj
 
 # -g : 使用 GDB debug
 # -O : 最佳化
-CFLAGS  += -fno-common -fno-builtin -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostdlib 
+CFLAGS  += -fno-common	\
+			 -fno-builtin	\
+			 -O0 \
+			 -std=gnu99 -g \
+			 -mcpu=cortex-m3 -mthumb \
+			 -nostdlib 
+#CFLAGS += -mcpu=cortex-m3 -mthumb -gdwarf-2 -MD -Wall -O0 -mapcs-frame -mthumb-interwork
+
+ASFLAGS = -mcpu=cortex-m3 -mthumb
+
+
 #CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nodefaultlibs -nostartfiles
 #CFLAGS  += -fno-common -O0 -std=gnu99 -g -mcpu=cortex-m3 -mthumb -nostartfiles
 
-c_obj= entry.o systick_int.o
-asm_obj=
+c_obj= kernel_entry.o switch_context.o thread.o user_threads.o
+asm_obj= switch.o
 
 .PHONY : all
 all: $(c_obj) $(asm_obj) move
 
 
 %.o : %.s
-	$(toolchain)-as $^ -o $@
+	$(toolchain)-as $(ASFLAGS) $^ -o $@
 
 
 %.o : %.c

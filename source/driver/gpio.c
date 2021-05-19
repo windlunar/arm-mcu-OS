@@ -18,50 +18,41 @@ void gpio_clk_enable(void)
 
 int config_gpio_mode_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t mode_bits)
 {
-	if (pin <= 7) {
-		// clear original bit first
-		GPIOx->CRL &= (uint32_t)~(1 << (4 * pin)) ;
-		
-		GPIOx->CRL |= (uint32_t)(mode_bits << (4 * pin)) ;
-
-	} else if (pin <= 15) {
-		// clear bit first
-		GPIOx->CRH &= (uint32_t)~(1 << (4 * (pin - 8))) ;
-		
-		GPIOx->CRH |= (uint32_t)(mode_bits << (4 * (pin - 8))) ;
-
-	} else {
+	if (pin > 15) 
 		return -1 ;
-	}
+
+	
+	volatile uint32_t *CRx = &GPIOx->CRL ;
+	CRx += (pin / 8) ;
+
+	// First ,clear original bits 
+	*CRx &= (uint32_t)~(1 << (4 * (pin % 8))) ;
+
+	// Config the bits
+	mode_bits &= (uint32_t)0x03 ;
+	*CRx |= (uint32_t)(mode_bits << (4 * (pin % 8))) ;
+
 
 	return 0 ;
 }
 
 
-
 int config_gpio_cnf_bits(GPIO_TypeDef * GPIOx ,uint8_t pin ,uint8_t cnf_bits)
 {
-	uint8_t bit_shift ;
-
-	if (pin <= 7) {
-		bit_shift = (4 * pin) + 2 ;
-		
-		// clear bit first
-		GPIOx->CRL &= (uint32_t)~(1 << bit_shift) ;
-		
-		GPIOx->CRL |= (uint32_t)(cnf_bits << bit_shift) ;
-
-	} else if (pin <= 15) {
-		bit_shift = (4 * (pin - 8)) + 2 ;
-		
-		// clear bit first
-		GPIOx->CRH &= (uint32_t)~(1 << bit_shift) ;
-		
-		GPIOx->CRH |= (uint32_t)(cnf_bits << bit_shift) ;
-
-	} else {
+	if (pin > 15) 
 		return -1 ;
-	}
+
+	
+	volatile uint32_t *CRx = &GPIOx->CRL ;
+	CRx += (pin / 8) ;
+
+	// First ,clear original bits 
+	*CRx &= (uint32_t)~(1 << (4 * (pin % 8) + 2)) ;
+
+	// Config the bits
+	cnf_bits &= (uint32_t)0x03 ;
+	*CRx |= (uint32_t)(cnf_bits << (4 * (pin % 8  + 2))) ;
+
 
 	return 0 ;
 }

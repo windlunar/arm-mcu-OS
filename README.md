@@ -93,6 +93,16 @@ Compile it :
 PART 2 : Compile this project
 =
 
+First ,clone the project. 
+
+    git clone -b ubuntu-gcc-main https://github.com/windlunar/arm-mcu-OS
+
+Or :
+
+    git clone -b ubuntu-gcc-hello-world https://github.com/windlunar/arm-mcu-OS
+
+Compile :
+
     make
     make qemu
 

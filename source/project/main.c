@@ -4,7 +4,6 @@
 
 
 void usart2_putc(unsigned char c);
-unsigned char usart2_getc(void);
 void usart2_send_str(char *s) ;
 
 

@@ -24,7 +24,7 @@ Disassembly of section .text:
  8000108:	5f f8 08 f1                                         _...
 
 0800010c <main>:
-unsigned char usart2_getc(void);
+void usart2_putc(unsigned char c);
 void usart2_send_str(char *s) ;
 
 

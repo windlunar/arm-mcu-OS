@@ -143,6 +143,9 @@ Move to the directory where your "stlink-1.6.1-1_amd64.deb" is.
 
 PART3 : Compile and install ST-Link from source
 
+    sudo apt-get install git make cmake libusb-1.0-0-dev
+    sudo apt-get install gcc build-essential
+
 Download "Source code (zip)"  version 1.6.1 from https://github.com/stlink-org/stlink/releases
 
     cd stlink-1.6.1

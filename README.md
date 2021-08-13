@@ -158,7 +158,7 @@ Download "Source code (zip)"  version 1.6.1 from https://github.com/stlink-org/s
     cd ../lib
     sudo cp *.so* /lib
 
-    sudo cp stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
+    sudo cp ../config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
     sudo udevadm control --reload-rules
     sudo udevadm trigger
 
